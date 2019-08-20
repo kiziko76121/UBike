@@ -1,0 +1,444 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4B1D3C40379C70184CA348AF /* Pods_UBike.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9702C0C85850CB78506A9473 /* Pods_UBike.framework */; };
+		EE3B1D8A230A4165000369EF /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3B1D89230A4165000369EF /* FavoritesViewController.swift */; };
+		EE3B1D8C230A418B000369EF /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3B1D8B230A418B000369EF /* MapViewController.swift */; };
+		EE3B1D8E230A41A2000369EF /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3B1D8D230A41A2000369EF /* ListViewController.swift */; };
+		EE3B1D91230A5BD9000369EF /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3B1D90230A5BD9000369EF /* Station.swift */; };
+		EE3B1D94230AA50D000369EF /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3B1D93230AA50D000369EF /* Common.swift */; };
+		EE3BA69D2308219500389571 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3BA69C2308219500389571 /* AppDelegate.swift */; };
+		EE3BA69F2308219500389571 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3BA69E2308219500389571 /* ViewController.swift */; };
+		EE3BA6A22308219500389571 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE3BA6A02308219500389571 /* Main.storyboard */; };
+		EE3BA6A42308219600389571 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE3BA6A32308219600389571 /* Assets.xcassets */; };
+		EE3BA6A72308219600389571 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE3BA6A52308219600389571 /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		42A347665181AD0DDD3CE3A2 /* Pods-UBike.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UBike.release.xcconfig"; path = "Pods/Target Support Files/Pods-UBike/Pods-UBike.release.xcconfig"; sourceTree = "<group>"; };
+		9702C0C85850CB78506A9473 /* Pods_UBike.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UBike.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE043F50B6261D1D0021CC55 /* Pods-UBike.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UBike.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UBike/Pods-UBike.debug.xcconfig"; sourceTree = "<group>"; };
+		EE3B1D89230A4165000369EF /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		EE3B1D8B230A418B000369EF /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		EE3B1D8D230A41A2000369EF /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		EE3B1D90230A5BD9000369EF /* Station.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Station.swift; sourceTree = "<group>"; };
+		EE3B1D93230AA50D000369EF /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
+		EE3BA6992308219500389571 /* UBike.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UBike.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE3BA69C2308219500389571 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		EE3BA69E2308219500389571 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		EE3BA6A12308219500389571 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EE3BA6A32308219600389571 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EE3BA6A62308219600389571 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		EE3BA6A82308219600389571 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EE3BA6962308219500389571 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4B1D3C40379C70184CA348AF /* Pods_UBike.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2C3A38A36868E48A4B2DE9D8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DE043F50B6261D1D0021CC55 /* Pods-UBike.debug.xcconfig */,
+				42A347665181AD0DDD3CE3A2 /* Pods-UBike.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		7A24171CD4F0A7FD3F46E337 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9702C0C85850CB78506A9473 /* Pods_UBike.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EE3B1D8F230A5B9C000369EF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EE3B1D90230A5BD9000369EF /* Station.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		EE3B1D92230AA4D4000369EF /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				EE3B1D93230AA50D000369EF /* Common.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		EE3BA6902308219500389571 = {
+			isa = PBXGroup;
+			children = (
+				EE3BA69B2308219500389571 /* UBike */,
+				EE3B1D92230AA4D4000369EF /* Common */,
+				EE3B1D8F230A5B9C000369EF /* Model */,
+				EE3BA69A2308219500389571 /* Products */,
+				2C3A38A36868E48A4B2DE9D8 /* Pods */,
+				7A24171CD4F0A7FD3F46E337 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		EE3BA69A2308219500389571 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EE3BA6992308219500389571 /* UBike.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EE3BA69B2308219500389571 /* UBike */ = {
+			isa = PBXGroup;
+			children = (
+				EE3BA69C2308219500389571 /* AppDelegate.swift */,
+				EE3BA69E2308219500389571 /* ViewController.swift */,
+				EE3BA6A02308219500389571 /* Main.storyboard */,
+				EE3BA6A32308219600389571 /* Assets.xcassets */,
+				EE3BA6A52308219600389571 /* LaunchScreen.storyboard */,
+				EE3BA6A82308219600389571 /* Info.plist */,
+				EE3B1D89230A4165000369EF /* FavoritesViewController.swift */,
+				EE3B1D8B230A418B000369EF /* MapViewController.swift */,
+				EE3B1D8D230A41A2000369EF /* ListViewController.swift */,
+			);
+			path = UBike;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EE3BA6982308219500389571 /* UBike */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EE3BA6AB2308219600389571 /* Build configuration list for PBXNativeTarget "UBike" */;
+			buildPhases = (
+				0E6CE662BE0743E8056EDE11 /* [CP] Check Pods Manifest.lock */,
+				EE3BA6952308219500389571 /* Sources */,
+				EE3BA6962308219500389571 /* Frameworks */,
+				EE3BA6972308219500389571 /* Resources */,
+				285AE8BD599791299BC19AD9 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = UBike;
+			productName = UBike;
+			productReference = EE3BA6992308219500389571 /* UBike.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EE3BA6912308219500389571 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1020;
+				LastUpgradeCheck = 1020;
+				ORGANIZATIONNAME = Mojo;
+				TargetAttributes = {
+					EE3BA6982308219500389571 = {
+						CreatedOnToolsVersion = 10.2.1;
+					};
+				};
+			};
+			buildConfigurationList = EE3BA6942308219500389571 /* Build configuration list for PBXProject "UBike" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EE3BA6902308219500389571;
+			productRefGroup = EE3BA69A2308219500389571 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EE3BA6982308219500389571 /* UBike */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EE3BA6972308219500389571 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EE3BA6A72308219600389571 /* LaunchScreen.storyboard in Resources */,
+				EE3BA6A42308219600389571 /* Assets.xcassets in Resources */,
+				EE3BA6A22308219500389571 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0E6CE662BE0743E8056EDE11 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-UBike-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		285AE8BD599791299BC19AD9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-UBike/Pods-UBike-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GzipSwift/Gzip.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Gzip.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-UBike/Pods-UBike-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EE3BA6952308219500389571 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EE3BA69F2308219500389571 /* ViewController.swift in Sources */,
+				EE3B1D8A230A4165000369EF /* FavoritesViewController.swift in Sources */,
+				EE3BA69D2308219500389571 /* AppDelegate.swift in Sources */,
+				EE3B1D8E230A41A2000369EF /* ListViewController.swift in Sources */,
+				EE3B1D91230A5BD9000369EF /* Station.swift in Sources */,
+				EE3B1D8C230A418B000369EF /* MapViewController.swift in Sources */,
+				EE3B1D94230AA50D000369EF /* Common.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		EE3BA6A02308219500389571 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EE3BA6A12308219500389571 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		EE3BA6A52308219600389571 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EE3BA6A62308219600389571 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EE3BA6A92308219600389571 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		EE3BA6AA2308219600389571 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EE3BA6AC2308219600389571 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DE043F50B6261D1D0021CC55 /* Pods-UBike.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = U2WH294AL9;
+				INFOPLIST_FILE = UBike/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mojo.UBike;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EE3BA6AD2308219600389571 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 42A347665181AD0DDD3CE3A2 /* Pods-UBike.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = U2WH294AL9;
+				INFOPLIST_FILE = UBike/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mojo.UBike;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EE3BA6942308219500389571 /* Build configuration list for PBXProject "UBike" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EE3BA6A92308219600389571 /* Debug */,
+				EE3BA6AA2308219600389571 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EE3BA6AB2308219600389571 /* Build configuration list for PBXNativeTarget "UBike" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EE3BA6AC2308219600389571 /* Debug */,
+				EE3BA6AD2308219600389571 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EE3BA6912308219500389571 /* Project object */;
+}
