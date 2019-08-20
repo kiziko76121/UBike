@@ -18,6 +18,9 @@
 		EE3BA6A22308219500389571 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE3BA6A02308219500389571 /* Main.storyboard */; };
 		EE3BA6A42308219600389571 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE3BA6A32308219600389571 /* Assets.xcassets */; };
 		EE3BA6A72308219600389571 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE3BA6A52308219600389571 /* LaunchScreen.storyboard */; };
+		EE88BB1B230BE476002C6B7A /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE88BB1A230BE475002C6B7A /* CoreDataHelper.swift */; };
+		EE88BB1E230BE54F002C6B7A /* StationDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EE88BB1C230BE54F002C6B7A /* StationDataModel.xcdatamodeld */; };
+		EE88BB20230C06CF002C6B7A /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE88BB1F230C06CF002C6B7A /* ListTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +39,9 @@
 		EE3BA6A32308219600389571 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EE3BA6A62308219600389571 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EE3BA6A82308219600389571 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EE88BB1A230BE475002C6B7A /* CoreDataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
+		EE88BB1D230BE54F002C6B7A /* StationDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = StationDataModel.xcdatamodel; sourceTree = "<group>"; };
+		EE88BB1F230C06CF002C6B7A /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +76,8 @@
 		EE3B1D8F230A5B9C000369EF /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				EE88BB1A230BE475002C6B7A /* CoreDataHelper.swift */,
+				EE88BB1C230BE54F002C6B7A /* StationDataModel.xcdatamodeld */,
 				EE3B1D90230A5BD9000369EF /* Station.swift */,
 			);
 			path = Model;
@@ -115,6 +123,7 @@
 				EE3B1D89230A4165000369EF /* FavoritesViewController.swift */,
 				EE3B1D8B230A418B000369EF /* MapViewController.swift */,
 				EE3B1D8D230A41A2000369EF /* ListViewController.swift */,
+				EE88BB1F230C06CF002C6B7A /* ListTableViewCell.swift */,
 			);
 			path = UBike;
 			sourceTree = "<group>";
@@ -233,7 +242,10 @@
 			files = (
 				EE3BA69F2308219500389571 /* ViewController.swift in Sources */,
 				EE3B1D8A230A4165000369EF /* FavoritesViewController.swift in Sources */,
+				EE88BB1B230BE476002C6B7A /* CoreDataHelper.swift in Sources */,
+				EE88BB1E230BE54F002C6B7A /* StationDataModel.xcdatamodeld in Sources */,
 				EE3BA69D2308219500389571 /* AppDelegate.swift in Sources */,
+				EE88BB20230C06CF002C6B7A /* ListTableViewCell.swift in Sources */,
 				EE3B1D8E230A41A2000369EF /* ListViewController.swift in Sources */,
 				EE3B1D91230A5BD9000369EF /* Station.swift in Sources */,
 				EE3B1D8C230A418B000369EF /* MapViewController.swift in Sources */,
@@ -439,6 +451,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		EE88BB1C230BE54F002C6B7A /* StationDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				EE88BB1D230BE54F002C6B7A /* StationDataModel.xcdatamodel */,
+			);
+			currentVersion = EE88BB1D230BE54F002C6B7A /* StationDataModel.xcdatamodel */;
+			path = StationDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = EE3BA6912308219500389571 /* Project object */;
 }

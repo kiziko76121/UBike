@@ -7,13 +7,14 @@
 //
 
 import Foundation
+import UIKit
 
 class Common {
     static let shared = Common()
     var datas = [Station]()
     let youBikeTPJson = "https://tcgbusfs.blob.core.windows.net/blobyoubike/YouBikeTP.json"
     
-    func getUBikeDatasFromWeb(){
+    func getUBikeDatasFromWeb(tableView: UITableView){
         
         DispatchQueue.global().async {
             guard let url = URL(string: self.youBikeTPJson),let originalData = try? Data(contentsOf: url ),
@@ -45,8 +46,10 @@ class Common {
                 station.act = stationData.value["act"] as? String ?? ""
                 self.datas.append(station)
             }
-            print(self.datas[0].sna)
-            
+            self.datas =  self.datas.sorted(by: {$0.sarea < $1.sarea})
+            DispatchQueue.main.async {
+                tableView.reloadData()
+            }
         }
         
     }
