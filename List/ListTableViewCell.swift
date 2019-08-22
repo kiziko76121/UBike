@@ -15,14 +15,15 @@ class ListTableViewCell: UITableViewCell {
     @IBOutlet weak var bemp: UILabel!
     @IBOutlet weak var mday: UILabel!
     @IBOutlet weak var address: UILabel!
-    
+    @IBOutlet weak var favoriteButton: UIButton!
+    var isFavorite = false
     
 
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

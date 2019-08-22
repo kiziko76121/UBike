@@ -21,11 +21,37 @@ class ListViewController: UIViewController {
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        common.getUBikeDatasFromWeb(tableView:self.tableView)
+        
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.loadUBikeData()
+    }
     
+    @IBAction func refreshButton(_ sender: Any) {
+        self.loadUBikeData()
+    }
+    
+    func loadUBikeData(){
+        self.common.getUBikeDatasFromWeb(tableView:self.tableView)
+    }
 
+    @objc func favoritePress(_ sender: UIButton) {
+        print("123")
+//        if self.isFavorite {
+//            self.isFavorite = true
+            if let image = UIImage(named: "favorite") {
+                sender.setImage(image, for: .normal)
+            }
+//        }else{
+//            self.isFavorite = false
+//            if let image = UIImage(named: "unFavorite") {
+//                self.favoriteButton.setImage(image, for: .normal)
+//            }
+//
+//        }
+    }
+    
     /*
     // MARK: - Navigation
 
@@ -47,8 +73,8 @@ extension ListViewController:UITableViewDelegate,UITableViewDataSource{
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ListTableViewCell
         cell.stationName.text = self.common.datas[indexPath.row].sna
         cell.tot.text = self.common.datas[indexPath.row].tot
-        cell.sbi.text = self.common.datas[indexPath.row].sbi
-        cell.bemp.text = self.common.datas[indexPath.row].bemp
+        cell.sbi.text = "\(self.common.datas[indexPath.row].sbi)"
+        cell.bemp.text = "\(self.common.datas[indexPath.row].bemp)"
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyyMMddHHmmss"
         let dateString = self.common.datas[indexPath.row].mday
@@ -56,6 +82,12 @@ extension ListViewController:UITableViewDelegate,UITableViewDataSource{
         dateFormatter.dateFormat = "yyyy/MM/dd HH:mm:ss"
         cell.mday.text = dateFormatter.string(from: date!)
         cell.address.text = self.common.datas[indexPath.row].ar
+        
+        // assign the index of the youtuber to button tag
+        cell.favoriteButton.tag = indexPath.row
+        
+        // call the subscribeTapped method when tapped
+        cell.favoriteButton.addTarget(self, action: #selector(favoritePress), for: .touchUpInside)
         return cell
     }
     

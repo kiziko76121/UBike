@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		4B1D3C40379C70184CA348AF /* Pods_UBike.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9702C0C85850CB78506A9473 /* Pods_UBike.framework */; };
+		EE13E143230EB84000664BAC /* Favorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE13E142230EB84000664BAC /* Favorite.swift */; };
+		EE13E146230EBBB400664BAC /* FavoriteDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EE13E144230EBBB400664BAC /* FavoriteDataModel.xcdatamodeld */; };
+		EE22784C230D45AA00546511 /* UBikeAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE22784B230D45AA00546511 /* UBikeAnnotation.swift */; };
 		EE3B1D8A230A4165000369EF /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3B1D89230A4165000369EF /* FavoritesViewController.swift */; };
 		EE3B1D8C230A418B000369EF /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3B1D8B230A418B000369EF /* MapViewController.swift */; };
 		EE3B1D8E230A41A2000369EF /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3B1D8D230A41A2000369EF /* ListViewController.swift */; };
@@ -19,7 +22,6 @@
 		EE3BA6A42308219600389571 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE3BA6A32308219600389571 /* Assets.xcassets */; };
 		EE3BA6A72308219600389571 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE3BA6A52308219600389571 /* LaunchScreen.storyboard */; };
 		EE88BB1B230BE476002C6B7A /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE88BB1A230BE475002C6B7A /* CoreDataHelper.swift */; };
-		EE88BB1E230BE54F002C6B7A /* StationDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EE88BB1C230BE54F002C6B7A /* StationDataModel.xcdatamodeld */; };
 		EE88BB20230C06CF002C6B7A /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE88BB1F230C06CF002C6B7A /* ListTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +29,9 @@
 		42A347665181AD0DDD3CE3A2 /* Pods-UBike.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UBike.release.xcconfig"; path = "Pods/Target Support Files/Pods-UBike/Pods-UBike.release.xcconfig"; sourceTree = "<group>"; };
 		9702C0C85850CB78506A9473 /* Pods_UBike.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UBike.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE043F50B6261D1D0021CC55 /* Pods-UBike.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UBike.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UBike/Pods-UBike.debug.xcconfig"; sourceTree = "<group>"; };
+		EE13E142230EB84000664BAC /* Favorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorite.swift; sourceTree = "<group>"; };
+		EE13E145230EBBB400664BAC /* FavoriteDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FavoriteDataModel.xcdatamodel; sourceTree = "<group>"; };
+		EE22784B230D45AA00546511 /* UBikeAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UBikeAnnotation.swift; sourceTree = "<group>"; };
 		EE3B1D89230A4165000369EF /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		EE3B1D8B230A418B000369EF /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		EE3B1D8D230A41A2000369EF /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
@@ -40,7 +45,6 @@
 		EE3BA6A62308219600389571 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EE3BA6A82308219600389571 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EE88BB1A230BE475002C6B7A /* CoreDataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
-		EE88BB1D230BE54F002C6B7A /* StationDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = StationDataModel.xcdatamodel; sourceTree = "<group>"; };
 		EE88BB1F230C06CF002C6B7A /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -73,12 +77,31 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		EE13E147230EC6B800664BAC /* List */ = {
+			isa = PBXGroup;
+			children = (
+				EE3B1D8D230A41A2000369EF /* ListViewController.swift */,
+				EE88BB1F230C06CF002C6B7A /* ListTableViewCell.swift */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		EE22784A230D456000546511 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				EE3B1D8B230A418B000369EF /* MapViewController.swift */,
+				EE22784B230D45AA00546511 /* UBikeAnnotation.swift */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
 		EE3B1D8F230A5B9C000369EF /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				EE88BB1A230BE475002C6B7A /* CoreDataHelper.swift */,
-				EE88BB1C230BE54F002C6B7A /* StationDataModel.xcdatamodeld */,
 				EE3B1D90230A5BD9000369EF /* Station.swift */,
+				EE13E142230EB84000664BAC /* Favorite.swift */,
+				EE13E144230EBBB400664BAC /* FavoriteDataModel.xcdatamodeld */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -95,6 +118,8 @@
 			isa = PBXGroup;
 			children = (
 				EE3BA69B2308219500389571 /* UBike */,
+				EE13E147230EC6B800664BAC /* List */,
+				EE22784A230D456000546511 /* Map */,
 				EE3B1D92230AA4D4000369EF /* Common */,
 				EE3B1D8F230A5B9C000369EF /* Model */,
 				EE3BA69A2308219500389571 /* Products */,
@@ -121,9 +146,6 @@
 				EE3BA6A52308219600389571 /* LaunchScreen.storyboard */,
 				EE3BA6A82308219600389571 /* Info.plist */,
 				EE3B1D89230A4165000369EF /* FavoritesViewController.swift */,
-				EE3B1D8B230A418B000369EF /* MapViewController.swift */,
-				EE3B1D8D230A41A2000369EF /* ListViewController.swift */,
-				EE88BB1F230C06CF002C6B7A /* ListTableViewCell.swift */,
 			);
 			path = UBike;
 			sourceTree = "<group>";
@@ -243,11 +265,13 @@
 				EE3BA69F2308219500389571 /* ViewController.swift in Sources */,
 				EE3B1D8A230A4165000369EF /* FavoritesViewController.swift in Sources */,
 				EE88BB1B230BE476002C6B7A /* CoreDataHelper.swift in Sources */,
-				EE88BB1E230BE54F002C6B7A /* StationDataModel.xcdatamodeld in Sources */,
 				EE3BA69D2308219500389571 /* AppDelegate.swift in Sources */,
+				EE22784C230D45AA00546511 /* UBikeAnnotation.swift in Sources */,
+				EE13E146230EBBB400664BAC /* FavoriteDataModel.xcdatamodeld in Sources */,
 				EE88BB20230C06CF002C6B7A /* ListTableViewCell.swift in Sources */,
 				EE3B1D8E230A41A2000369EF /* ListViewController.swift in Sources */,
 				EE3B1D91230A5BD9000369EF /* Station.swift in Sources */,
+				EE13E143230EB84000664BAC /* Favorite.swift in Sources */,
 				EE3B1D8C230A418B000369EF /* MapViewController.swift in Sources */,
 				EE3B1D94230AA50D000369EF /* Common.swift in Sources */,
 			);
@@ -326,7 +350,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -381,7 +405,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -453,13 +477,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		EE88BB1C230BE54F002C6B7A /* StationDataModel.xcdatamodeld */ = {
+		EE13E144230EBBB400664BAC /* FavoriteDataModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				EE88BB1D230BE54F002C6B7A /* StationDataModel.xcdatamodel */,
+				EE13E145230EBBB400664BAC /* FavoriteDataModel.xcdatamodel */,
 			);
-			currentVersion = EE88BB1D230BE54F002C6B7A /* StationDataModel.xcdatamodel */;
-			path = StationDataModel.xcdatamodeld;
+			currentVersion = EE13E145230EBBB400664BAC /* FavoriteDataModel.xcdatamodel */;
+			path = FavoriteDataModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
