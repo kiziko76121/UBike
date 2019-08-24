@@ -21,7 +21,7 @@ class ListViewController: UIViewController {
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        
+//        print(NSHomeDirectory())
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -37,19 +37,38 @@ class ListViewController: UIViewController {
     }
 
     @objc func favoritePress(_ sender: UIButton) {
-        print("123")
-//        if self.isFavorite {
-//            self.isFavorite = true
-            if let image = UIImage(named: "favorite") {
-                sender.setImage(image, for: .normal)
+sender.description
+        if sender.title(for: .normal) == "unFavorite"{
+            guard let image = UIImage(named: "favorite") else{
+                return
             }
-//        }else{
-//            self.isFavorite = false
-//            if let image = UIImage(named: "unFavorite") {
-//                self.favoriteButton.setImage(image, for: .normal)
-//            }
-//
-//        }
+            sender.setImage(image, for: .normal)
+            sender.setTitle("favorite", for: .normal)
+            let moc = CoreDataHelper.shared.managedObjectContext()
+            let favorite  = Favorite(context: moc)
+            
+            
+            favorite.favoriteStationNo = self.common.datas[sender.tag].sno
+            self.common.favorite.insert(favorite, at: 0)
+            
+            self.common.saveToCoreData()
+        }else{
+            guard let image = UIImage(named: "unFavorite") else{
+                return
+            }
+            sender.setImage(image, for: .normal)
+            sender.setTitle("unFavorite", for: .normal)
+            
+            for index in 0..<self.common.favorite.count{
+                if self.common.favorite[index].favoriteStationNo == self.common.datas[sender.tag].sno{
+                    let deleteFavorite = self.common.favorite.remove(at: index)
+                    let moc = CoreDataHelper.shared.managedObjectContext()
+                    moc.delete(deleteFavorite)
+                    break
+                }
+            }
+            self.common.saveToCoreData()
+        }
     }
     
     /*
@@ -71,25 +90,30 @@ extension ListViewController:UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ListTableViewCell
-        cell.stationName.text = self.common.datas[indexPath.row].sna
-        cell.tot.text = self.common.datas[indexPath.row].tot
-        cell.sbi.text = "\(self.common.datas[indexPath.row].sbi)"
-        cell.bemp.text = "\(self.common.datas[indexPath.row].bemp)"
+        cell.stationNameLabel.text = self.common.datas[indexPath.row].sna
+        cell.totLabel.text = self.common.datas[indexPath.row].tot
+        cell.sbiLabel.text = "\(self.common.datas[indexPath.row].sbi)"
+        cell.bempLabel.text = "\(self.common.datas[indexPath.row].bemp)"
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyyMMddHHmmss"
         let dateString = self.common.datas[indexPath.row].mday
         let date = dateFormatter.date(from: dateString)
         dateFormatter.dateFormat = "yyyy/MM/dd HH:mm:ss"
-        cell.mday.text = dateFormatter.string(from: date!)
-        cell.address.text = self.common.datas[indexPath.row].ar
+        cell.mdayLabel.text = dateFormatter.string(from: date!)
+        cell.addressLabel.text = self.common.datas[indexPath.row].ar
         
-        // assign the index of the youtuber to button tag
+        if self.common.checkIsFavorite(value: self.common.datas[indexPath.row].sno){
+            cell.favoriteButton.setTitle("favorite", for: .normal)
+            cell.favoriteButton.setImage(UIImage(named: "favorite"), for: .normal)
+        }else{
+            cell.favoriteButton.setTitle("unFavorite", for: .normal)
+            cell.favoriteButton.setImage(UIImage(named: "unFavorite"), for: .normal)
+        }
+
         cell.favoriteButton.tag = indexPath.row
         
-        // call the subscribeTapped method when tapped
         cell.favoriteButton.addTarget(self, action: #selector(favoritePress), for: .touchUpInside)
         return cell
     }
-    
 
 }

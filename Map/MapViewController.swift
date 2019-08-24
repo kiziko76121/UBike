@@ -17,6 +17,7 @@ class MapViewController: UIViewController {
     @IBOutlet weak var bempLabel: UILabel!
     @IBOutlet weak var stationNameLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
+    @IBOutlet weak var favoriteButton: UIButton!
     
     
     let common = Common.shared
@@ -34,10 +35,7 @@ class MapViewController: UIViewController {
         self.mainMapView.delegate = self
         self.mainMapView.showsUserLocation = true   //顯示user位置
         self.mainMapView.userTrackingMode = .follow  //隨著user移動
-//        if let image = UIImage(named: "follow.png") {
-//            self.userTrackingMode.setImage(editImage.thumbnailImage(image: image, width: 40, height: 40, circle: true,background: false), for: .normal)
-//        }
-//        self.isFollow = true
+        
         guard CLLocationManager.locationServicesEnabled() else {
             return
         }
@@ -51,11 +49,6 @@ class MapViewController: UIViewController {
         self.manger.startUpdatingLocation() //開始update user位置
         
         self.loadUBikeData()
-
-//        let coordinate = CLLocationCoordinate2DMake(25.026021, 121.50424309)
-//        let annotation = UBikeAnnotation(coordinate:coordinate)
-//        
-//        self.mainMapView.addAnnotation(annotation)
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -74,6 +67,40 @@ class MapViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    @IBAction func favoritePress(_ sender: UIButton) {
+        if sender.title(for: .normal) == "unFavorite"{
+            guard let image = UIImage(named: "favorite") else{
+                return
+            }
+            sender.setImage(image, for: .normal)
+            sender.setTitle("favorite", for: .normal)
+            let moc = CoreDataHelper.shared.managedObjectContext()
+            let favorite  = Favorite(context: moc)
+            
+            
+            favorite.favoriteStationNo = self.common.datas[sender.tag].sno
+            self.common.favorite.insert(favorite, at: 0) //放在陣列中最上面的位置
+            
+            self.common.saveToCoreData()
+        }else{
+            guard let image = UIImage(named: "unFavorite") else{
+                return
+            }
+            sender.setImage(image, for: .normal)
+            sender.setTitle("unFavorite", for: .normal)
+            
+            for index in 0..<self.common.favorite.count{
+                if self.common.favorite[index].favoriteStationNo == self.common.datas[sender.tag].sno{
+                    let deleteFavorite = self.common.favorite.remove(at: index)
+                    let moc = CoreDataHelper.shared.managedObjectContext()
+                    moc.delete(deleteFavorite)
+                    break
+                }
+            }
+            self.common.saveToCoreData()
+        }
+    }
+    
     @IBAction func refreshPress(_ sender: Any) {
         //Remove annotations
         let annotations = self.mainMapView.annotations
@@ -104,7 +131,7 @@ class MapViewController: UIViewController {
         
         let coordinate = CLLocationCoordinate2DMake(latitude, longitude)
         let annotation = UBikeAnnotation(coordinate:coordinate)
-//        annotation.coordinate =  coordinate
+
         annotation.title = sno
         annotation.sno = sno
         annotation.sna = sna
@@ -131,11 +158,7 @@ class MapViewController: UIViewController {
 //MARK: CLLocationManagerDelegate
 extension MapViewController : CLLocationManagerDelegate{
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-//        guard let coordinate = locations.last?.coordinate else {
-//            return
-//        }
-//        self.latitude = coordinate.latitude
-//        self.longitude = coordinate.longitude
+
     }
 }
 
@@ -156,7 +179,6 @@ extension MapViewController: MKMapViewDelegate{
         }
         
         if let subtitle = annotation.subtitle, subtitle != nil {
-            //            annotationView?.image = UIImage(named: subtitle!)
             
             switch subtitle {
             case "red":
@@ -167,17 +189,7 @@ extension MapViewController: MKMapViewDelegate{
                 annotationView?.markerTintColor = #colorLiteral(red: 0.1960784314, green: 0.8431372549, blue: 0.2941176471, alpha: 1)
             }
         }
-        
-//        var imageName = "BarIcon.png"
-//        for userTracking in self.userTrackings{
-//            if(userTracking.storeID == annotation.title){
-//                imageName = "Love.png"
-//                annotationView?.markerTintColor = UIColor.red
-//                annotationView?.displayPriority = .defaultHigh
-//                break
-//            }
-//        }
-//
+
         annotationView?.glyphImage = UIImage(named: "bike")
         annotationView?.titleVisibility = .hidden
         annotationView?.subtitleVisibility = .hidden
@@ -193,50 +205,29 @@ extension MapViewController: MKMapViewDelegate{
         }
         self.view.bringSubviewToFront(self.detailView)
         let annotation = view.annotation as! UBikeAnnotation
-//        guard let title = annotation.title as? String else{
-//            assertionFailure("Fail to get annotation?.title.")
-//            return
-//        }
+
         guard let sbi = annotation.sbi,let bemp = annotation.bemp,
-            let sna = annotation.sna,let address = annotation.address else{
+            let sna = annotation.sna,let address = annotation.address,
+        let sno = annotation.sno else{
                 return
         }
         self.sbiLabel.text = "\(sbi)"
         self.bempLabel.text = "\(bemp)"
         self.stationNameLabel.text = "\(sna)"
         self.addressLabel.text = "\(address)"
-//        //load images
-//        queryStoreImage(storeID:title)
         
-//        for store in self.stores{
-//            if store.storeID == title{
-//                self.tempStore = store
-//                self.storeNameLabel.text = store.storeName
-//                self.storeAddressLabel.text = store.address
-//                self.telLabel.text = store.tel
-//                guard let avgFraction = store.avgFraction else{
-//                    continue
-//                }
-//                guard avgFraction != 0 else{
-//                    self.farctionLabel.text = "-"
-//                    break
-//                }
-//                self.farctionLabel.text = String(avgFraction)
-//                break
-//            }
-//        }
-        
-//        if checkIsUserTracking(value: title){
-//            self.favoriteBtn.image = UIImage(named: "Favorite")
-//        }else{
-//            self.favoriteBtn.image = UIImage(named: "UnFavorite")
-//        }
+        if self.common.checkIsFavorite(value: sno){
+            self.favoriteButton.setTitle("favorite", for: .normal)
+            self.favoriteButton.setImage(UIImage(named: "favorite"), for: .normal)
+        }else{
+            self.favoriteButton.setTitle("unFavorite", for: .normal)
+            self.favoriteButton.setImage(UIImage(named: "unFavorite"), for: .normal)
+        }
     }
     
     //leave Annotation
     func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView){
-//        self.photos = []
-//        self.tempAnnotation = nil
+
         self.view.sendSubviewToBack(detailView)
     }
 }

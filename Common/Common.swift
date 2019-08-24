@@ -38,6 +38,13 @@ class Common {
         }
     }
     
+    //MARK: Core Data
+    func saveToCoreData() {
+        
+        CoreDataHelper.shared.saveContext()
+        
+    }
+    
     func getUBikeDatasFromWeb(tableView: UITableView){
         DispatchQueue.global().async {
             self.getUBikeData()
@@ -83,8 +90,26 @@ class Common {
             station.act = stationData.value["act"] as? String ?? ""
             self.datas.append(station)
         }
-        self.datas =  self.datas.sorted(by: {$0.sarea < $1.sarea})
+        self.datas =  self.datas.sorted(by: {
+            if  $0.sarea == $1.sarea{
+                return $0.sno < $1.sno
+            }else{
+                return $0.sarea < $1.sarea
+            }
+        })
+//        for data in self.datas{
+//            print("\(data.sarea),\(data.sno)")
+//        }
         
+    }
+    
+    func checkIsFavorite(value: String)-> Bool{
+        for favorite in self.favorite{
+            if favorite.favoriteStationNo == value{
+                return true
+            }
+        }
+        return false
     }
 
 }

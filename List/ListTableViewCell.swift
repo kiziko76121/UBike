@@ -9,12 +9,12 @@
 import UIKit
 
 class ListTableViewCell: UITableViewCell {
-    @IBOutlet weak var stationName: UILabel!
-    @IBOutlet weak var tot: UILabel!
-    @IBOutlet weak var sbi: UILabel!
-    @IBOutlet weak var bemp: UILabel!
-    @IBOutlet weak var mday: UILabel!
-    @IBOutlet weak var address: UILabel!
+    @IBOutlet weak var stationNameLabel: UILabel!
+    @IBOutlet weak var totLabel: UILabel!
+    @IBOutlet weak var sbiLabel: UILabel!
+    @IBOutlet weak var bempLabel: UILabel!
+    @IBOutlet weak var mdayLabel: UILabel!
+    @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var favoriteButton: UIButton!
     var isFavorite = false
     

@@ -9,14 +9,34 @@
 import UIKit
 
 class FavoritesViewController: UIViewController {
+    
+    let common = Common.shared
 
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        self.tableView.reloadData()
     }
     
-
+    @objc func favoritePress(_ sender: UIButton) {
+        
+        
+        let deleteFavorite = self.common.favorite.remove(at: sender.tag)
+        let moc = CoreDataHelper.shared.managedObjectContext()
+        moc.delete(deleteFavorite)
+        
+        self.common.saveToCoreData()
+        let indexPath = IndexPath(row: sender.tag, section: 0)
+        self.tableView.deleteRows(at: [indexPath], with: .automatic)
+        self.tableView.reloadData()
+    }
+    
     /*
     // MARK: - Navigation
 
@@ -27,4 +47,36 @@ class FavoritesViewController: UIViewController {
     }
     */
 
+}
+
+extension FavoritesViewController:UITableViewDelegate,UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.common.favorite.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ListTableViewCell
+        
+        for data in self.common.datas{
+            if data.sno == self.common.favorite[indexPath.row].favoriteStationNo{
+                cell.stationNameLabel.text = data.sna
+                cell.totLabel.text = data.tot
+                cell.sbiLabel.text = "\(data.sbi)"
+                cell.bempLabel.text = "\(data.bemp)"
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "yyyyMMddHHmmss"
+                let dateString = data.mday
+                let date = dateFormatter.date(from: dateString)
+                dateFormatter.dateFormat = "yyyy/MM/dd HH:mm:ss"
+                cell.mdayLabel.text = dateFormatter.string(from: date!)
+                cell.addressLabel.text = data.ar
+                cell.favoriteButton.tag = indexPath.row
+                cell.favoriteButton.addTarget(self, action: #selector(favoritePress), for: .touchUpInside)
+                return cell
+            }
+        }
+        return cell
+    }
+    
+    
 }

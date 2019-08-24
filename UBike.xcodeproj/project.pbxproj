@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		4B1D3C40379C70184CA348AF /* Pods_UBike.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9702C0C85850CB78506A9473 /* Pods_UBike.framework */; };
 		EE13E143230EB84000664BAC /* Favorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE13E142230EB84000664BAC /* Favorite.swift */; };
-		EE13E146230EBBB400664BAC /* FavoriteDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EE13E144230EBBB400664BAC /* FavoriteDataModel.xcdatamodeld */; };
 		EE22784C230D45AA00546511 /* UBikeAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE22784B230D45AA00546511 /* UBikeAnnotation.swift */; };
 		EE3B1D8A230A4165000369EF /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3B1D89230A4165000369EF /* FavoritesViewController.swift */; };
 		EE3B1D8C230A418B000369EF /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3B1D8B230A418B000369EF /* MapViewController.swift */; };
@@ -23,6 +22,7 @@
 		EE3BA6A72308219600389571 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE3BA6A52308219600389571 /* LaunchScreen.storyboard */; };
 		EE88BB1B230BE476002C6B7A /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE88BB1A230BE475002C6B7A /* CoreDataHelper.swift */; };
 		EE88BB20230C06CF002C6B7A /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE88BB1F230C06CF002C6B7A /* ListTableViewCell.swift */; };
+		EEEE8577230FA02A0081857A /* FavoriteDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EEEE8575230FA02A0081857A /* FavoriteDataModel.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,7 +30,6 @@
 		9702C0C85850CB78506A9473 /* Pods_UBike.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UBike.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE043F50B6261D1D0021CC55 /* Pods-UBike.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UBike.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UBike/Pods-UBike.debug.xcconfig"; sourceTree = "<group>"; };
 		EE13E142230EB84000664BAC /* Favorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorite.swift; sourceTree = "<group>"; };
-		EE13E145230EBBB400664BAC /* FavoriteDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FavoriteDataModel.xcdatamodel; sourceTree = "<group>"; };
 		EE22784B230D45AA00546511 /* UBikeAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UBikeAnnotation.swift; sourceTree = "<group>"; };
 		EE3B1D89230A4165000369EF /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		EE3B1D8B230A418B000369EF /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -46,6 +45,7 @@
 		EE3BA6A82308219600389571 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EE88BB1A230BE475002C6B7A /* CoreDataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
 		EE88BB1F230C06CF002C6B7A /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
+		EEEE8576230FA02A0081857A /* FavoriteDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FavoriteDataModel.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,7 +101,7 @@
 				EE88BB1A230BE475002C6B7A /* CoreDataHelper.swift */,
 				EE3B1D90230A5BD9000369EF /* Station.swift */,
 				EE13E142230EB84000664BAC /* Favorite.swift */,
-				EE13E144230EBBB400664BAC /* FavoriteDataModel.xcdatamodeld */,
+				EEEE8575230FA02A0081857A /* FavoriteDataModel.xcdatamodeld */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -267,7 +267,7 @@
 				EE88BB1B230BE476002C6B7A /* CoreDataHelper.swift in Sources */,
 				EE3BA69D2308219500389571 /* AppDelegate.swift in Sources */,
 				EE22784C230D45AA00546511 /* UBikeAnnotation.swift in Sources */,
-				EE13E146230EBBB400664BAC /* FavoriteDataModel.xcdatamodeld in Sources */,
+				EEEE8577230FA02A0081857A /* FavoriteDataModel.xcdatamodeld in Sources */,
 				EE88BB20230C06CF002C6B7A /* ListTableViewCell.swift in Sources */,
 				EE3B1D8E230A41A2000369EF /* ListViewController.swift in Sources */,
 				EE3B1D91230A5BD9000369EF /* Station.swift in Sources */,
@@ -477,12 +477,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		EE13E144230EBBB400664BAC /* FavoriteDataModel.xcdatamodeld */ = {
+		EEEE8575230FA02A0081857A /* FavoriteDataModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				EE13E145230EBBB400664BAC /* FavoriteDataModel.xcdatamodel */,
+				EEEE8576230FA02A0081857A /* FavoriteDataModel.xcdatamodel */,
 			);
-			currentVersion = EE13E145230EBBB400664BAC /* FavoriteDataModel.xcdatamodel */;
+			currentVersion = EEEE8576230FA02A0081857A /* FavoriteDataModel.xcdatamodel */;
 			path = FavoriteDataModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
