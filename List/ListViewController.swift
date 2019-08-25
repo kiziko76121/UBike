@@ -21,7 +21,6 @@ class ListViewController: UIViewController {
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
-//        print(NSHomeDirectory())
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -37,7 +36,6 @@ class ListViewController: UIViewController {
     }
 
     @objc func favoritePress(_ sender: UIButton) {
-sender.description
         if sender.title(for: .normal) == "unFavorite"{
             guard let image = UIImage(named: "favorite") else{
                 return
@@ -49,6 +47,7 @@ sender.description
             
             
             favorite.favoriteStationNo = self.common.datas[sender.tag].sno
+            favorite.sarea = self.common.datas[sender.tag].sarea
             self.common.favorite.insert(favorite, at: 0)
             
             self.common.saveToCoreData()
@@ -71,15 +70,14 @@ sender.description
         }
     }
     
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+//        self.hidesBottomBarWhenPushed = true
     }
-    */
+ 
 
 }
 
@@ -114,6 +112,12 @@ extension ListViewController:UITableViewDelegate,UITableViewDataSource{
         
         cell.favoriteButton.addTarget(self, action: #selector(favoritePress), for: .touchUpInside)
         return cell
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let stationNo = self.common.datas[indexPath.row].sno
+        print("ListstationNo=\(stationNo)")
+        NotificationCenter.default.post(name: Notification.Name("selectAnnotation"), object: nil, userInfo: ["stationNo":stationNo])
+        self.tabBarController!.selectedIndex = 1
     }
 
 }

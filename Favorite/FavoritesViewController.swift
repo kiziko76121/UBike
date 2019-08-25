@@ -21,7 +21,12 @@ class FavoritesViewController: UIViewController {
         self.tableView.dataSource = self
     }
     override func viewWillAppear(_ animated: Bool) {
-        self.tableView.reloadData()
+        self.loadUBikeData()
+        self.common.queryFromCoreData()
+    }
+    
+    func loadUBikeData(){
+        self.common.getUBikeDatasFromWeb(tableView:self.tableView)
     }
     
     @objc func favoritePress(_ sender: UIButton) {

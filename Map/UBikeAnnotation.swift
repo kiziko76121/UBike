@@ -20,6 +20,7 @@ class UBikeAnnotation: NSObject,MKAnnotation {
     var sbi : Int?
     var bemp : Int?
     var address : String?
+    var sarea : String?
     
     init(coordinate : CLLocationCoordinate2D) {
         self.coordinate = coordinate

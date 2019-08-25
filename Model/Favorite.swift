@@ -11,4 +11,5 @@ import CoreData
 
 class Favorite: NSManagedObject {
     @NSManaged var favoriteStationNo : String?
+    @NSManaged var sarea : String?
 }

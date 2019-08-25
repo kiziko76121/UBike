@@ -79,13 +79,13 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="tot" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FdH-DM-TyM">
-                                                    <rect key="frame" x="108" y="36.5" width="132" height="21"/>
+                                                    <rect key="frame" x="108" y="36.5" width="152" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="sbi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RUA-eC-mIb">
-                                                    <rect key="frame" x="143" y="62.5" width="97" height="21"/>
+                                                    <rect key="frame" x="143" y="62.5" width="117" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -109,10 +109,10 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hLU-Gs-f2h">
-                                                    <rect key="frame" x="300" y="41" width="50" height="50"/>
+                                                    <rect key="frame" x="320" y="41" width="30" height="30"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="50" id="30k-8Z-3Zv"/>
-                                                        <constraint firstAttribute="width" constant="50" id="qkf-cB-hEl"/>
+                                                        <constraint firstAttribute="height" constant="30" id="30k-8Z-3Zv"/>
+                                                        <constraint firstAttribute="width" constant="30" id="qkf-cB-hEl"/>
                                                     </constraints>
                                                     <state key="normal" title="Button" image="unFavorite"/>
                                                 </button>
@@ -257,13 +257,13 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="tot" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Frg-DP-qKQ">
-                                                    <rect key="frame" x="108" y="36.5" width="132" height="21"/>
+                                                    <rect key="frame" x="108" y="36.5" width="152" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="sbi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vBU-k6-McG">
-                                                    <rect key="frame" x="143" y="62.5" width="97" height="21"/>
+                                                    <rect key="frame" x="143" y="62.5" width="117" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -287,10 +287,10 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ef5-zG-NdF">
-                                                    <rect key="frame" x="300" y="41" width="50" height="50"/>
+                                                    <rect key="frame" x="320" y="41" width="30" height="30"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="50" id="0i6-Yr-mlz"/>
-                                                        <constraint firstAttribute="height" constant="50" id="mMN-1M-GQt"/>
+                                                        <constraint firstAttribute="width" constant="30" id="0i6-Yr-mlz"/>
+                                                        <constraint firstAttribute="height" constant="30" id="mMN-1M-GQt"/>
                                                     </constraints>
                                                     <state key="normal" title="Button" image="favorite"/>
                                                 </button>
@@ -402,13 +402,13 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="bemp" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NmE-Q3-uxG">
-                                        <rect key="frame" x="175" y="5" width="135" height="21"/>
+                                        <rect key="frame" x="175" y="5" width="150" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YpO-eq-Qek">
-                                        <rect key="frame" x="5" y="36" width="255" height="20.5"/>
+                                        <rect key="frame" x="5" y="36" width="270" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -420,10 +420,10 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nia-ZQ-DXU">
-                                        <rect key="frame" x="320" y="5" width="50" height="50"/>
+                                        <rect key="frame" x="335" y="10" width="30" height="30"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="50" id="b95-GX-9EY"/>
-                                            <constraint firstAttribute="height" constant="50" id="pjU-su-SuL"/>
+                                            <constraint firstAttribute="width" constant="30" id="b95-GX-9EY"/>
+                                            <constraint firstAttribute="height" constant="30" id="pjU-su-SuL"/>
                                         </constraints>
                                         <state key="normal" image="unFavorite">
                                             <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -442,9 +442,9 @@
                                     <constraint firstItem="R7C-RF-u0w" firstAttribute="leading" secondItem="HlN-Jy-tBd" secondAttribute="trailing" constant="30" id="FXl-z7-H6y"/>
                                     <constraint firstItem="HlN-Jy-tBd" firstAttribute="top" secondItem="hmK-Ei-Vrv" secondAttribute="top" constant="5" id="HKR-SO-ZwP"/>
                                     <constraint firstItem="Nia-ZQ-DXU" firstAttribute="leading" secondItem="YpO-eq-Qek" secondAttribute="trailing" constant="60" id="Mqf-V8-Hsq"/>
-                                    <constraint firstItem="Nia-ZQ-DXU" firstAttribute="top" secondItem="hmK-Ei-Vrv" secondAttribute="top" constant="5" id="RuM-ZU-ije"/>
+                                    <constraint firstItem="Nia-ZQ-DXU" firstAttribute="top" secondItem="hmK-Ei-Vrv" secondAttribute="top" constant="10" id="RuM-ZU-ije"/>
                                     <constraint firstItem="NmE-Q3-uxG" firstAttribute="top" secondItem="hmK-Ei-Vrv" secondAttribute="top" constant="5" id="SII-QQ-Nwi"/>
-                                    <constraint firstAttribute="trailing" secondItem="Nia-ZQ-DXU" secondAttribute="trailing" constant="5" id="T59-Lj-w9m"/>
+                                    <constraint firstAttribute="trailing" secondItem="Nia-ZQ-DXU" secondAttribute="trailing" constant="10" id="T59-Lj-w9m"/>
                                     <constraint firstItem="aEE-2D-JNd" firstAttribute="leading" secondItem="hmK-Ei-Vrv" secondAttribute="leading" constant="5" id="TmA-UC-06C"/>
                                     <constraint firstItem="NmE-Q3-uxG" firstAttribute="leading" secondItem="R7C-RF-u0w" secondAttribute="trailing" constant="5" id="fp3-ci-oih"/>
                                     <constraint firstItem="bzX-HM-Lt2" firstAttribute="top" secondItem="hmK-Ei-Vrv" secondAttribute="top" constant="5" id="ft9-Qi-VN9"/>
@@ -499,7 +499,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="MdJ-t7-H6X">
             <objects>
-                <tabBarController id="w3N-aS-cr5" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="tabBarController" id="w3N-aS-cr5" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="kVW-ky-yaz">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

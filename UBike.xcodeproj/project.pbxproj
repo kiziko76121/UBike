@@ -118,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				EE3BA69B2308219500389571 /* UBike */,
+				EE5900E22312C65900CBC6CF /* Favorite */,
 				EE13E147230EC6B800664BAC /* List */,
 				EE22784A230D456000546511 /* Map */,
 				EE3B1D92230AA4D4000369EF /* Common */,
@@ -145,9 +146,16 @@
 				EE3BA6A32308219600389571 /* Assets.xcassets */,
 				EE3BA6A52308219600389571 /* LaunchScreen.storyboard */,
 				EE3BA6A82308219600389571 /* Info.plist */,
-				EE3B1D89230A4165000369EF /* FavoritesViewController.swift */,
 			);
 			path = UBike;
+			sourceTree = "<group>";
+		};
+		EE5900E22312C65900CBC6CF /* Favorite */ = {
+			isa = PBXGroup;
+			children = (
+				EE3B1D89230A4165000369EF /* FavoritesViewController.swift */,
+			);
+			path = Favorite;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

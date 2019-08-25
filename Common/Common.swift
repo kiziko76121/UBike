@@ -25,6 +25,9 @@ class Common {
         let moc = CoreDataHelper.shared.managedObjectContext()
         
         let request = NSFetchRequest<Favorite>(entityName: "Favorite")
+        let sortSarea = NSSortDescriptor(key: "sarea", ascending: true)
+        let sortFavoriteStationNo = NSSortDescriptor(key: "favoriteStationNo", ascending: true)
+        request.sortDescriptors = [sortSarea,sortFavoriteStationNo]
         
         moc.performAndWait {
             
@@ -74,7 +77,6 @@ class Common {
                 print("Get json error")
                 return
         }
-        
         for stationData in stationDatas{
             let station = Station()
             station.sno = stationData.value["sno"] as? String ?? ""
@@ -84,7 +86,9 @@ class Common {
             station.sarea = stationData.value["sarea"] as? String ?? ""
             station.mday = stationData.value["mday"] as? String ?? ""
             station.lat = stationData.value["lat"] as? String ?? "0.0"
+            station.lat = station.lat.replacingOccurrences(of: " ", with: "")
             station.lng = stationData.value["lng"] as? String ?? "0.0"
+            station.lng = station.lng.replacingOccurrences(of: " ", with: "")
             station.ar = stationData.value["ar"] as? String ?? ""
             station.bemp = stationData.value["bemp"] as? String ?? "0"
             station.act = stationData.value["act"] as? String ?? ""

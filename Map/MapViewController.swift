@@ -22,11 +22,19 @@ class MapViewController: UIViewController {
     
     let common = Common.shared
     var manger = CLLocationManager()
+    var stationNo = ""
+    var tempAnnotation : MKAnnotation?
+    var intoAnnotation : UBikeAnnotation?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.selectAnnotation(notification:)), name: Notification.Name("selectAnnotation"), object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -49,6 +57,18 @@ class MapViewController: UIViewController {
         self.manger.startUpdatingLocation() //開始update user位置
         
         self.loadUBikeData()
+        
+        if self.stationNo != "" {
+            guard let annotation = self.tempAnnotation else{
+                return
+            }
+            print("MapstationNo=\(self.stationNo)")
+            self.mainMapView.selectAnnotation(annotation, animated: true)
+            //Zooming in on annotation
+            let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
+            let region = MKCoordinateRegion(center: annotation.coordinate, span: span)
+            self.mainMapView.setRegion(region, animated: true)
+        }
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -56,6 +76,12 @@ class MapViewController: UIViewController {
         //Remove annotations
         let annotations = self.mainMapView.annotations
         self.mainMapView.removeAnnotations(annotations)
+        self.tempAnnotation = nil
+        self.stationNo = ""
+    }
+    
+    @objc  func selectAnnotation(notification :  Notification){
+        self.stationNo = notification.userInfo?["stationNo"] as! String
     }
 
     /*
@@ -68,6 +94,9 @@ class MapViewController: UIViewController {
     }
     */
     @IBAction func favoritePress(_ sender: UIButton) {
+        guard let intoAnnotation = self.intoAnnotation else{
+            return
+        }
         if sender.title(for: .normal) == "unFavorite"{
             guard let image = UIImage(named: "favorite") else{
                 return
@@ -77,10 +106,10 @@ class MapViewController: UIViewController {
             let moc = CoreDataHelper.shared.managedObjectContext()
             let favorite  = Favorite(context: moc)
             
-            
-            favorite.favoriteStationNo = self.common.datas[sender.tag].sno
+           
+            favorite.favoriteStationNo = intoAnnotation.sno
+            favorite.sarea = intoAnnotation.sarea
             self.common.favorite.insert(favorite, at: 0) //放在陣列中最上面的位置
-            
             self.common.saveToCoreData()
         }else{
             guard let image = UIImage(named: "unFavorite") else{
@@ -90,7 +119,7 @@ class MapViewController: UIViewController {
             sender.setTitle("unFavorite", for: .normal)
             
             for index in 0..<self.common.favorite.count{
-                if self.common.favorite[index].favoriteStationNo == self.common.datas[sender.tag].sno{
+                if self.common.favorite[index].favoriteStationNo == intoAnnotation.sno{
                     let deleteFavorite = self.common.favorite.remove(at: index)
                     let moc = CoreDataHelper.shared.managedObjectContext()
                     moc.delete(deleteFavorite)
@@ -113,13 +142,13 @@ class MapViewController: UIViewController {
             for station in self.common.datas{
                 self.addAnnotationtoMapView(station: station)
             }
-        
     }
     
     func addAnnotationtoMapView(station:Station){
         let sno = station.sno
         let sna = station.sna
         let ar = station.ar
+        let sarea = station.sarea
         guard let latitude = Double(station.lat),
             let longitude = Double(station.lng),
             let sbi = Int(station.sbi),
@@ -140,6 +169,7 @@ class MapViewController: UIViewController {
         annotation.longitude = longitude
         annotation.sbi = sbi
         annotation.bemp = bemp
+        annotation.sarea = sarea
         
         if sbi <= 3 {
             annotation.subtitle = "orange"
@@ -150,6 +180,9 @@ class MapViewController: UIViewController {
         }
 
         self.mainMapView.addAnnotation(annotation)
+        if self.stationNo == sno{
+            self.tempAnnotation = annotation
+        }
 
     }
 
@@ -205,6 +238,8 @@ extension MapViewController: MKMapViewDelegate{
         }
         self.view.bringSubviewToFront(self.detailView)
         let annotation = view.annotation as! UBikeAnnotation
+        
+        self.intoAnnotation = annotation
 
         guard let sbi = annotation.sbi,let bemp = annotation.bemp,
             let sna = annotation.sna,let address = annotation.address,
