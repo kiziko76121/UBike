@@ -64,10 +64,21 @@ extension FavoritesViewController:UITableViewDelegate,UITableViewDataSource{
         
         for data in self.common.datas{
             if data.sno == self.common.favorite[indexPath.row].favoriteStationNo{
+                guard let sbi = Int(data.sbi),
+                    let bemp = Int(data.bemp) else{
+                        print("Int(sbi) or Int(bemp) error")
+                        return cell
+                }
                 cell.stationNameLabel.text = data.sna
                 cell.totLabel.text = data.tot
                 cell.sbiLabel.text = "\(data.sbi)"
                 cell.bempLabel.text = "\(data.bemp)"
+                if sbi <= 3{
+                    cell.sbiLabel.textColor = #colorLiteral(red: 1, green: 0.3098039216, blue: 0.2666666667, alpha: 1)
+                }
+                if bemp <= 3{
+                    cell.bempLabel.textColor = #colorLiteral(red: 1, green: 0.3098039216, blue: 0.2666666667, alpha: 1)
+                }
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateFormat = "yyyyMMddHHmmss"
                 let dateString = data.mday
@@ -77,11 +88,16 @@ extension FavoritesViewController:UITableViewDelegate,UITableViewDataSource{
                 cell.addressLabel.text = data.ar
                 cell.favoriteButton.tag = indexPath.row
                 cell.favoriteButton.addTarget(self, action: #selector(favoritePress), for: .touchUpInside)
+                cell.favoriteButton.imageEdgeInsets = UIEdgeInsets(top: 50, left: 50, bottom: 50, right: 50)
                 return cell
             }
         }
         return cell
     }
     
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let stationNo = self.common.favorite[indexPath.row].favoriteStationNo
+        NotificationCenter.default.post(name: Notification.Name("selectAnnotation"), object: nil, userInfo: ["stationNo":stationNo])
+        self.tabBarController!.selectedIndex = 1
+    }
 }

@@ -88,10 +88,21 @@ extension ListViewController:UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ListTableViewCell
+        guard let sbi = Int(self.common.datas[indexPath.row].sbi),
+            let bemp = Int(self.common.datas[indexPath.row].bemp) else{
+            print("Int(sbi) or Int(bemp) error")
+            return cell
+        }
         cell.stationNameLabel.text = self.common.datas[indexPath.row].sna
         cell.totLabel.text = self.common.datas[indexPath.row].tot
         cell.sbiLabel.text = "\(self.common.datas[indexPath.row].sbi)"
         cell.bempLabel.text = "\(self.common.datas[indexPath.row].bemp)"
+        if sbi <= 3{
+            cell.sbiLabel.textColor = #colorLiteral(red: 1, green: 0.3098039216, blue: 0.2666666667, alpha: 1)
+        }
+        if bemp <= 3{
+            cell.bempLabel.textColor = #colorLiteral(red: 1, green: 0.3098039216, blue: 0.2666666667, alpha: 1)
+        }
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyyMMddHHmmss"
         let dateString = self.common.datas[indexPath.row].mday
@@ -103,9 +114,11 @@ extension ListViewController:UITableViewDelegate,UITableViewDataSource{
         if self.common.checkIsFavorite(value: self.common.datas[indexPath.row].sno){
             cell.favoriteButton.setTitle("favorite", for: .normal)
             cell.favoriteButton.setImage(UIImage(named: "favorite"), for: .normal)
+            cell.favoriteButton.imageEdgeInsets = UIEdgeInsets(top: 50, left: 50, bottom: 50, right: 50)
         }else{
             cell.favoriteButton.setTitle("unFavorite", for: .normal)
             cell.favoriteButton.setImage(UIImage(named: "unFavorite"), for: .normal)
+            cell.favoriteButton.imageEdgeInsets = UIEdgeInsets(top: 50, left: 50, bottom: 50, right: 50)
         }
 
         cell.favoriteButton.tag = indexPath.row
@@ -115,7 +128,6 @@ extension ListViewController:UITableViewDelegate,UITableViewDataSource{
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let stationNo = self.common.datas[indexPath.row].sno
-        print("ListstationNo=\(stationNo)")
         NotificationCenter.default.post(name: Notification.Name("selectAnnotation"), object: nil, userInfo: ["stationNo":stationNo])
         self.tabBarController!.selectedIndex = 1
     }

@@ -62,7 +62,6 @@ class MapViewController: UIViewController {
             guard let annotation = self.tempAnnotation else{
                 return
             }
-            print("MapstationNo=\(self.stationNo)")
             self.mainMapView.selectAnnotation(annotation, animated: true)
             //Zooming in on annotation
             let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
