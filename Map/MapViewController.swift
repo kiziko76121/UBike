@@ -9,6 +9,7 @@
 import UIKit
 import MapKit
 
+
 class MapViewController: UIViewController {
 
     @IBOutlet weak var mainMapView: MKMapView!
@@ -25,19 +26,12 @@ class MapViewController: UIViewController {
     var stationNo = ""
     var tempAnnotation : MKAnnotation?
     var intoAnnotation : UBikeAnnotation?
+    var nowLocation : CLLocationCoordinate2D?
+    var tempLatitude = 0.0
+    var tempLongitude = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.selectAnnotation(notification:)), name: Notification.Name("selectAnnotation"), object: nil)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
         self.detailView.alpha = 0.9
         self.view.sendSubviewToBack(detailView)
         self.mainMapView.delegate = self
@@ -55,18 +49,32 @@ class MapViewController: UIViewController {
         self.manger.desiredAccuracy = kCLLocationAccuracyBest//設定為最佳精度
         self.manger.activityType = .automotiveNavigation
         self.manger.startUpdatingLocation() //開始update user位置
-        
-        self.loadUBikeData()
-        
-        if self.stationNo != "" {
-            guard let annotation = self.tempAnnotation else{
-                return
+        // Do any additional setup after loading the view.
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.selectAnnotation(notification:)), name: Notification.Name("selectAnnotation"), object: nil)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if self.stationNo == ""{
+            self.loadUBikeData()
+        }else{
+            for station in self.common.datas{
+                let sno = station.sno
+                guard let latitude = Double(station.lat),
+                    let longitude = Double(station.lng) else{
+                        print("Transformation lat,lng error")
+                        return
+                }
+                if self.stationNo == sno{
+                    self.tempLatitude = latitude
+                    self.tempLongitude = longitude
+                    break
+                }
             }
-            self.mainMapView.selectAnnotation(annotation, animated: true)
-            //Zooming in on annotation
-            let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
-            let region = MKCoordinateRegion(center: annotation.coordinate, span: span)
-            self.mainMapView.setRegion(region, animated: true)
+            self.loadUBikeData()
         }
     }
     
@@ -82,6 +90,7 @@ class MapViewController: UIViewController {
     @objc  func selectAnnotation(notification :  Notification){
         self.stationNo = notification.userInfo?["stationNo"] as! String
     }
+    
 
     /*
     // MARK: - Navigation
@@ -137,10 +146,37 @@ class MapViewController: UIViewController {
     }
     
     func loadUBikeData(){
-        self.common.getUBikeDatasFromWeb()
-            for station in self.common.datas{
-                self.addAnnotationtoMapView(station: station)
+        DispatchQueue.global().async {
+            self.common.getUBikeDatasFromWeb()
+            DispatchQueue.main.async {
+                for station in self.common.datas{
+                    self.addAnnotationtoMapView(station: station)
+                }
+                if self.stationNo != ""{
+                    self.selectAnnotationFromList()
+                }
             }
+        }
+    }
+    
+    func selectAnnotationFromList(){
+//        print("selectAnnotationFromList")
+        
+            guard let annotation = self.tempAnnotation else{
+                return
+            }
+//            print("Zooming in on annotation")
+            self.mainMapView.selectAnnotation(annotation, animated: true)
+            //Zooming in on annotation
+            let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
+            let region = MKCoordinateRegion(center: annotation.coordinate, span: span)
+            self.mainMapView.setRegion(region, animated: true)
+           
+            DispatchQueue.global().asyncAfter(deadline: DispatchTime.now() + 2, execute: {
+                self.stationNo = ""
+                self.tempLatitude = 0.0
+                self.tempLongitude = 0.0
+            })
     }
     
     func addAnnotationtoMapView(station:Station){
@@ -152,6 +188,7 @@ class MapViewController: UIViewController {
             let longitude = Double(station.lng),
             let sbi = Int(station.sbi),
             let bemp = Int(station.bemp) else{
+                print("Transformation lat,lng,sbi,bemp error")
                 return
         }
         
@@ -171,17 +208,61 @@ class MapViewController: UIViewController {
         annotation.sarea = sarea
         
         if sbi <= 3 {
-            annotation.subtitle = "orange"
+            annotation.subtitle = "lessBike"
         }else if bemp <= 3{
-            annotation.subtitle = "red"
+            annotation.subtitle = "fullBike"
         }else{
-            annotation.subtitle = "green"
+            annotation.subtitle = "internal"
         }
-
-        self.mainMapView.addAnnotation(annotation)
+        
+        
+        let annotations = self.mainMapView.annotations
+       
+        
+        if self.stationNo == "",let nowLocation = self.nowLocation{
+            
+            if (latitude > nowLocation.latitude + 0.01 ||
+                latitude < nowLocation.latitude - 0.01 ||
+                longitude > nowLocation.longitude + 0.01 ||
+                longitude < nowLocation.longitude - 0.01)
+            {
+                for ant in annotations {
+                    if !(ant is MKUserLocation){
+                        let uBikeAnnotation = ant as! UBikeAnnotation
+                        if uBikeAnnotation.sno == annotation.sno{
+                            self.mainMapView.removeAnnotation(uBikeAnnotation)
+                        }
+                    }
+                }
+                return
+            }
+        }else if self.stationNo != ""{
+            if (latitude > self.tempLatitude + 0.01 ||
+                latitude < self.tempLatitude - 0.01 ||
+                longitude > self.tempLongitude + 0.01 ||
+                longitude < self.tempLongitude - 0.01)
+            {
+                return
+            }
+        }
+        
         if self.stationNo == sno{
             self.tempAnnotation = annotation
         }
+        
+        for ant in annotations {
+            if !(ant is MKUserLocation){
+                let uBikeAnnotation = ant as! UBikeAnnotation
+                if uBikeAnnotation.sno == annotation.sno{
+                    uBikeAnnotation.bemp = annotation.bemp
+                    uBikeAnnotation.sbi = annotation.sbi
+                    return
+                }
+            }
+        }
+        
+        self.mainMapView.addAnnotation(annotation)
+        
 
     }
 
@@ -190,6 +271,21 @@ class MapViewController: UIViewController {
 //MARK: CLLocationManagerDelegate
 extension MapViewController : CLLocationManagerDelegate{
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+
+    }
+    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+        
+
+//        print("center.latitude=\(mapView.region.center.latitude)") //目前緯度
+//        print("center.longitude=\(mapView.region.center.longitude)") //目前經度
+        if self.stationNo == ""{
+//            let annotations = self.mainMapView.annotations
+//            self.mainMapView.removeAnnotations(annotations)
+            self.nowLocation = mapView.region.center
+
+            self.loadUBikeData()
+        }
+//        self.selectAnnotationFromList()
 
     }
 }
@@ -202,7 +298,7 @@ extension MapViewController: MKMapViewDelegate{
         {
             return nil
         }
-        
+    
         var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "AnnotationView") as? MKMarkerAnnotationView
         
         if annotationView == nil {
@@ -213,12 +309,12 @@ extension MapViewController: MKMapViewDelegate{
         if let subtitle = annotation.subtitle, subtitle != nil {
             
             switch subtitle {
-            case "red":
-                annotationView?.markerTintColor = #colorLiteral(red: 1, green: 0.2705882353, blue: 0.2274509804, alpha: 1)
-            case "orange":
-                annotationView?.markerTintColor = #colorLiteral(red: 1, green: 0.6235294118, blue: 0.03921568627, alpha: 1)
+            case "lessBike":
+                annotationView?.markerTintColor = #colorLiteral(red: 0.8374180198, green: 0.8374378085, blue: 0.8374271393, alpha: 1)
+            case "fullBike":
+                annotationView?.markerTintColor = #colorLiteral(red: 0.5741485357, green: 0.5741624236, blue: 0.574154973, alpha: 1)
             default:
-                annotationView?.markerTintColor = #colorLiteral(red: 0.1960784314, green: 0.8431372549, blue: 0.2941176471, alpha: 1)
+                annotationView?.markerTintColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
             }
         }
 
@@ -229,6 +325,10 @@ extension MapViewController: MKMapViewDelegate{
         
         return annotationView
     }
+//    func mapView(_ mapView: MKMapView, didAdd views: [MKAnnotationView]) {
+////        print(mapView.annotations)
+//        self.mainMapView?.showAnnotations(mapView.annotations, animated: true)
+//    }
     
     //MARK: into Annotation
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView){
@@ -264,4 +364,5 @@ extension MapViewController: MKMapViewDelegate{
 
         self.view.sendSubviewToBack(detailView)
     }
+    
 }

@@ -14,6 +14,7 @@ class ListViewController: UIViewController {
     let common = Common.shared
     
     @IBOutlet weak var tableView: UITableView!
+    var refreshControl:UIRefreshControl!
     
     
     override func viewDidLoad() {
@@ -21,18 +22,22 @@ class ListViewController: UIViewController {
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        self.refreshControl = UIRefreshControl()
+        self.tableView.addSubview(refreshControl)
+        self.refreshControl.addTarget(self, action: #selector(loadUBikeData), for: UIControl.Event.valueChanged)
+        self.loadUBikeData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.loadUBikeData()
+        self.tableView.reloadData()
     }
     
     @IBAction func refreshButton(_ sender: Any) {
         self.loadUBikeData()
     }
     
-    func loadUBikeData(){
-        self.common.getUBikeDatasFromWeb(tableView:self.tableView)
+    @objc func loadUBikeData(){
+        self.common.getUBikeDatasFromWeb(tableView:self.tableView,refreshControl:self.refreshControl)
     }
 
     @objc func favoritePress(_ sender: UIButton) {

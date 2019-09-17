@@ -13,20 +13,24 @@ class FavoritesViewController: UIViewController {
     let common = Common.shared
 
     @IBOutlet weak var tableView: UITableView!
+    var refreshControl:UIRefreshControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        self.refreshControl = UIRefreshControl()
+        self.tableView.addSubview(refreshControl)
+        self.refreshControl.addTarget(self, action: #selector(loadUBikeData), for: UIControl.Event.valueChanged)
     }
     override func viewWillAppear(_ animated: Bool) {
-        self.loadUBikeData()
-        self.common.queryFromCoreData()
+        self.loadUBikeData()  
     }
     
-    func loadUBikeData(){
-        self.common.getUBikeDatasFromWeb(tableView:self.tableView)
+    @objc func loadUBikeData(){
+        self.common.getUBikeDatasFromWeb(tableView:self.tableView,refreshControl:self.refreshControl)
+        self.common.queryFromCoreData()
     }
     
     @objc func favoritePress(_ sender: UIButton) {

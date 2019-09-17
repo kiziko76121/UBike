@@ -23,6 +23,7 @@
 		EE88BB1B230BE476002C6B7A /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE88BB1A230BE475002C6B7A /* CoreDataHelper.swift */; };
 		EE88BB20230C06CF002C6B7A /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE88BB1F230C06CF002C6B7A /* ListTableViewCell.swift */; };
 		EEEE8577230FA02A0081857A /* FavoriteDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EEEE8575230FA02A0081857A /* FavoriteDataModel.xcdatamodeld */; };
+		EEFD604C2330C20E00306100 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EEFD604E2330C20E00306100 /* InfoPlist.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,10 @@
 		EE88BB1A230BE475002C6B7A /* CoreDataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
 		EE88BB1F230C06CF002C6B7A /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
 		EEEE8576230FA02A0081857A /* FavoriteDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FavoriteDataModel.xcdatamodel; sourceTree = "<group>"; };
+		EEFD60482330C0C300306100 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Main.strings"; sourceTree = "<group>"; };
+		EEFD60492330C0C300306100 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		EEFD604D2330C20E00306100 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		EEFD604F2330C21300306100 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +151,7 @@
 				EE3BA6A32308219600389571 /* Assets.xcassets */,
 				EE3BA6A52308219600389571 /* LaunchScreen.storyboard */,
 				EE3BA6A82308219600389571 /* Info.plist */,
+				EEFD604E2330C20E00306100 /* InfoPlist.strings */,
 			);
 			path = UBike;
 			sourceTree = "<group>";
@@ -202,6 +208,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hant",
 			);
 			mainGroup = EE3BA6902308219500389571;
 			productRefGroup = EE3BA69A2308219500389571 /* Products */;
@@ -219,6 +226,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE3BA6A72308219600389571 /* LaunchScreen.storyboard in Resources */,
+				EEFD604C2330C20E00306100 /* InfoPlist.strings in Resources */,
 				EE3BA6A42308219600389571 /* Assets.xcassets in Resources */,
 				EE3BA6A22308219500389571 /* Main.storyboard in Resources */,
 			);
@@ -292,6 +300,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				EE3BA6A12308219500389571 /* Base */,
+				EEFD60482330C0C300306100 /* zh-Hant */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -300,8 +309,18 @@
 			isa = PBXVariantGroup;
 			children = (
 				EE3BA6A62308219600389571 /* Base */,
+				EEFD60492330C0C300306100 /* zh-Hant */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		EEFD604E2330C20E00306100 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EEFD604D2330C20E00306100 /* en */,
+				EEFD604F2330C21300306100 /* zh-Hant */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -311,6 +330,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -372,6 +392,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -438,7 +459,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.mojo.UBike;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -457,7 +478,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.mojo.UBike;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

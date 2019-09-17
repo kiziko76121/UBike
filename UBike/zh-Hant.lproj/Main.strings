@@ -1,0 +1,87 @@
+
+/* Class = "UILabel"; text = "總停車格:"; ObjectID = "1wS-H7-745"; */
+"1wS-H7-745.text" = "總停車格:";
+
+/* Class = "UILabel"; text = "name"; ObjectID = "70J-H3-r1j"; */
+"70J-H3-r1j.text" = "name";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Ef5-zG-NdF"; */
+"Ef5-zG-NdF.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "address"; ObjectID = "Ell-pE-ph5"; */
+"Ell-pE-ph5.text" = "address";
+
+/* Class = "UILabel"; text = "tot"; ObjectID = "FdH-DM-TyM"; */
+"FdH-DM-TyM.text" = "tot";
+
+/* Class = "UILabel"; text = "tot"; ObjectID = "Frg-DP-qKQ"; */
+"Frg-DP-qKQ.text" = "tot";
+
+/* Class = "UILabel"; text = "bemp"; ObjectID = "G1U-zo-8cO"; */
+"G1U-zo-8cO.text" = "bemp";
+
+/* Class = "UILabel"; text = "sbi"; ObjectID = "HlN-Jy-tBd"; */
+"HlN-Jy-tBd.text" = "sbi";
+
+/* Class = "UILabel"; text = "資料更新時間:"; ObjectID = "LHG-xg-Roo"; */
+"LHG-xg-Roo.text" = "資料更新時間:";
+
+/* Class = "UILabel"; text = "總停車格:"; ObjectID = "MVT-gx-IMq"; */
+"MVT-gx-IMq.text" = "總停車格:";
+
+/* Class = "UILabel"; text = "bemp"; ObjectID = "NmE-Q3-uxG"; */
+"NmE-Q3-uxG.text" = "bemp";
+
+/* Class = "UITabBarItem"; title = "List"; ObjectID = "RKL-ge-dog"; */
+"RKL-ge-dog.title" = "List";
+
+/* Class = "UILabel"; text = "sbi"; ObjectID = "RUA-eC-mIb"; */
+"RUA-eC-mIb.text" = "sbi";
+
+/* Class = "UILabel"; text = "空位數量:"; ObjectID = "Snh-pj-YAa"; */
+"Snh-pj-YAa.text" = "空位數量:";
+
+/* Class = "UITabBarItem"; title = "Map"; ObjectID = "Tp9-UU-XW1"; */
+"Tp9-UU-XW1.title" = "Map";
+
+/* Class = "UILabel"; text = "空位數量:"; ObjectID = "Wph-7W-DMl"; */
+"Wph-7W-DMl.text" = "空位數量:";
+
+/* Class = "UILabel"; text = "name"; ObjectID = "YpO-eq-Qek"; */
+"YpO-eq-Qek.text" = "name";
+
+/* Class = "UILabel"; text = "address"; ObjectID = "aEE-2D-JNd"; */
+"aEE-2D-JNd.text" = "address";
+
+/* Class = "UILabel"; text = "目前車輛數量:"; ObjectID = "cDe-Ct-npd"; */
+"cDe-Ct-npd.text" = "目前車輛數量:";
+
+/* Class = "UILabel"; text = "name"; ObjectID = "cd0-zX-Cuz"; */
+"cd0-zX-Cuz.text" = "name";
+
+/* Class = "UILabel"; text = "資料更新時間:"; ObjectID = "fgJ-xg-fCC"; */
+"fgJ-xg-fCC.text" = "資料更新時間:";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "hLU-Gs-f2h"; */
+"hLU-Gs-f2h.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "mday"; ObjectID = "iEs-j3-EUA"; */
+"iEs-j3-EUA.text" = "mday";
+
+/* Class = "UITabBarItem"; title = "Favorites"; ObjectID = "mdo-ev-aLz"; */
+"mdo-ev-aLz.title" = "Favorites";
+
+/* Class = "UILabel"; text = "bemp"; ObjectID = "p08-vJ-Y0r"; */
+"p08-vJ-Y0r.text" = "bemp";
+
+/* Class = "UILabel"; text = "mday"; ObjectID = "pFl-Et-CDG"; */
+"pFl-Et-CDG.text" = "mday";
+
+/* Class = "UILabel"; text = "address"; ObjectID = "qv0-gL-zTT"; */
+"qv0-gL-zTT.text" = "address";
+
+/* Class = "UILabel"; text = "目前車輛數量:"; ObjectID = "ulK-0x-MSa"; */
+"ulK-0x-MSa.text" = "目前車輛數量:";
+
+/* Class = "UILabel"; text = "sbi"; ObjectID = "vBU-k6-McG"; */
+"vBU-k6-McG.text" = "sbi";
