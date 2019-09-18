@@ -1,0 +1,11 @@
+/* 
+  Localizable.strings
+  UBike
+
+  Created by Mojo on 2019/9/17.
+  Copyright © 2019 Mojo. All rights reserved.
+*/
+"TotalParking"="Total parking:";
+"NumberOfBikes"="Bikes:";
+"EmptyPositions"="Empty positions:";
+"UpdateTime"="Update time:";

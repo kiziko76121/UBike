@@ -24,6 +24,7 @@
 		EE88BB20230C06CF002C6B7A /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE88BB1F230C06CF002C6B7A /* ListTableViewCell.swift */; };
 		EEEE8577230FA02A0081857A /* FavoriteDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EEEE8575230FA02A0081857A /* FavoriteDataModel.xcdatamodeld */; };
 		EEFD604C2330C20E00306100 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EEFD604E2330C20E00306100 /* InfoPlist.strings */; };
+		EEFD60522330C38400306100 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EEFD60542330C38400306100 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,8 @@
 		EEFD60492330C0C300306100 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		EEFD604D2330C20E00306100 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		EEFD604F2330C21300306100 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		EEFD60532330C38400306100 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		EEFD60552330C38600306100 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +155,7 @@
 				EE3BA6A52308219600389571 /* LaunchScreen.storyboard */,
 				EE3BA6A82308219600389571 /* Info.plist */,
 				EEFD604E2330C20E00306100 /* InfoPlist.strings */,
+				EEFD60542330C38400306100 /* Localizable.strings */,
 			);
 			path = UBike;
 			sourceTree = "<group>";
@@ -225,6 +229,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EEFD60522330C38400306100 /* Localizable.strings in Resources */,
 				EE3BA6A72308219600389571 /* LaunchScreen.storyboard in Resources */,
 				EEFD604C2330C20E00306100 /* InfoPlist.strings in Resources */,
 				EE3BA6A42308219600389571 /* Assets.xcassets in Resources */,
@@ -321,6 +326,15 @@
 				EEFD604F2330C21300306100 /* zh-Hant */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		EEFD60542330C38400306100 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EEFD60532330C38400306100 /* en */,
+				EEFD60552330C38600306100 /* zh-Hant */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

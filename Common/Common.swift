@@ -21,10 +21,13 @@ class Common :NSObject{
     let youBikeNTPJson = "https://data.ntpc.gov.tw/od/data/api/54DDDC93-589C-4858-9C95-18B2046CC1FC?$format=json"
     var lat = 0.0
     var lng = 0.0
+    var language = ""
     
     override init(){
         super.init()
         queryFromCoreData()
+        let array = Bundle.main.preferredLocalizations
+        language = array.first!
     }
     
     func queryFromCoreData()  {
@@ -94,7 +97,8 @@ class Common :NSObject{
         for stationData in stationDatas{
             let station = Station()
             station.sno = stationData["sno"] as? String ?? ""
-            station.sna = stationData["sna"] as? String ?? ""
+            station.sna = self.language == "zh-Hant" ? stationData["sna"] as? String ?? "" :
+                stationData["snaen"] as? String ?? ""
             station.tot = stationData["tot"] as? String ?? ""
             station.sbi = stationData["sbi"] as? String ?? "0"
             station.sarea = stationData["sarea"] as? String ?? ""
@@ -103,7 +107,8 @@ class Common :NSObject{
             station.lat = station.lat.replacingOccurrences(of: " ", with: "")
             station.lng = stationData["lng"] as? String ?? "0.0"
             station.lng = station.lng.replacingOccurrences(of: " ", with: "")
-            station.ar = stationData["ar"] as? String ?? ""
+            station.ar = self.language == "zh-Hant" ? stationData["ar"] as? String ?? "" :
+                stationData["aren"] as? String ?? ""
             station.bemp = stationData["bemp"] as? String ?? "0"
             station.act = stationData["act"] as? String ?? ""
             self.datas.append(station)
