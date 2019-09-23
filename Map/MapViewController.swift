@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import GoogleMobileAds
 
 
 class MapViewController: UIViewController {
@@ -19,6 +20,8 @@ class MapViewController: UIViewController {
     @IBOutlet weak var stationNameLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var favoriteButton: UIButton!
+    @IBOutlet weak var topConstraint: NSLayoutConstraint!
+    var bannerView : GADBannerView!
     
     
     let common = Common.shared
@@ -50,6 +53,14 @@ class MapViewController: UIViewController {
         self.manger.activityType = .automotiveNavigation
         self.manger.startUpdatingLocation() //開始update user位置
         // Do any additional setup after loading the view.
+        
+        //AD
+        self.bannerView = GADBannerView(adSize: kGADAdSizeBanner)
+        self.bannerView.translatesAutoresizingMaskIntoConstraints = false
+        self.bannerView.adUnitID = "ca-app-pub-4348354487644961/6895023755" //廣告單元ID
+        self.bannerView.rootViewController = self
+        self.bannerView.load(GADRequest())
+        self.bannerView.delegate = self
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -365,4 +376,29 @@ extension MapViewController: MKMapViewDelegate{
         self.view.sendSubviewToBack(detailView)
     }
     
+}
+
+//MARK: UIGestureRecognizerDelegate
+extension MapViewController: GADBannerViewDelegate {
+    func adViewDidReceiveAd(_ bannerView: GADBannerView) {
+        if self.bannerView.superview == nil {
+            
+            if self.topConstraint != nil {
+                self.topConstraint?.isActive = false
+            }
+            self.view.addSubview(bannerView)
+            
+            //autolayout
+            //廣告上緣－safeArea上緣
+            self.bannerView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 0).isActive = true
+            //廣告下緣－tableView上緣
+            self.bannerView.bottomAnchor.constraint(equalTo: self.mainMapView.topAnchor, constant: 0).isActive = true
+            //廣告左邊－controller'view 左邊
+            self.bannerView.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 0).isActive = true
+            //廣告右邊－controller'view 右邊
+            self.bannerView.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: 0).isActive = true
+            
+            
+        }
+    }
 }

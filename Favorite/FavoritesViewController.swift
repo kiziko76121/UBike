@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GoogleMobileAds
 
 class FavoritesViewController: UIViewController {
     
@@ -14,6 +15,8 @@ class FavoritesViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     var refreshControl:UIRefreshControl!
+    @IBOutlet weak var topConstraint: NSLayoutConstraint!
+    var bannerView : GADBannerView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +26,14 @@ class FavoritesViewController: UIViewController {
         self.refreshControl = UIRefreshControl()
         self.tableView.addSubview(refreshControl)
         self.refreshControl.addTarget(self, action: #selector(loadUBikeData), for: UIControl.Event.valueChanged)
+        
+        //AD
+        self.bannerView = GADBannerView(adSize: kGADAdSizeBanner)
+        self.bannerView.translatesAutoresizingMaskIntoConstraints = false
+        self.bannerView.adUnitID = "ca-app-pub-4348354487644961/6895023755" //廣告單元ID
+        self.bannerView.rootViewController = self
+        self.bannerView.load(GADRequest())
+        self.bannerView.delegate = self
     }
     override func viewWillAppear(_ animated: Bool) {
         self.loadUBikeData()  
@@ -103,5 +114,30 @@ extension FavoritesViewController:UITableViewDelegate,UITableViewDataSource{
         let stationNo = self.common.favorite[indexPath.row].favoriteStationNo
         NotificationCenter.default.post(name: Notification.Name("selectAnnotation"), object: nil, userInfo: ["stationNo":stationNo])
         self.tabBarController!.selectedIndex = 1
+    }
+}
+
+
+//MARK: UIGestureRecognizerDelegate
+extension FavoritesViewController: GADBannerViewDelegate {
+    func adViewDidReceiveAd(_ bannerView: GADBannerView) {
+        if self.bannerView.superview == nil {
+            
+            if self.topConstraint != nil {
+                self.topConstraint?.isActive = false
+            }
+            self.view.addSubview(bannerView)
+            
+            //autolayout
+            //廣告上緣－safeArea上緣
+            self.bannerView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 0).isActive = true
+            //廣告下緣－tableView上緣
+            self.bannerView.bottomAnchor.constraint(equalTo: self.tableView.topAnchor, constant: 0).isActive = true
+            //廣告左邊－controller'view 左邊
+            self.bannerView.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 0).isActive = true
+            //廣告右邊－controller'view 右邊
+            self.bannerView.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: 0).isActive = true
+            
+        }
     }
 }

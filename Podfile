@@ -10,4 +10,5 @@ target 'UBike' do
   # Pods for UBike
 
 pod 'GzipSwift'
+pod 'Google-Mobile-Ads-SDK'
 end

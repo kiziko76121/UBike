@@ -8,6 +8,7 @@
 
 import UIKit
 import Gzip
+import GoogleMobileAds
 
 class ListViewController: UIViewController {
     
@@ -15,6 +16,8 @@ class ListViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     var refreshControl:UIRefreshControl!
+    var bannerView : GADBannerView!
+    @IBOutlet weak var topConstraint: NSLayoutConstraint!
     
     
     override func viewDidLoad() {
@@ -26,6 +29,14 @@ class ListViewController: UIViewController {
         self.tableView.addSubview(refreshControl)
         self.refreshControl.addTarget(self, action: #selector(loadUBikeData), for: UIControl.Event.valueChanged)
         self.loadUBikeData()
+        
+        //AD
+        self.bannerView = GADBannerView(adSize: kGADAdSizeBanner)
+        self.bannerView.translatesAutoresizingMaskIntoConstraints = false
+        self.bannerView.adUnitID = "ca-app-pub-4348354487644961/6895023755" //廣告單元ID
+        self.bannerView.rootViewController = self
+        self.bannerView.load(GADRequest())
+        self.bannerView.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -92,11 +103,13 @@ extension ListViewController:UITableViewDelegate,UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ListTableViewCell
-        guard let sbi = Int(self.common.datas[indexPath.row].sbi),
+        guard self.common.datas.count > indexPath.row,
+            let sbi = Int(self.common.datas[indexPath.row].sbi),
             let bemp = Int(self.common.datas[indexPath.row].bemp) else{
-            print("Int(sbi) or Int(bemp) error")
-            return cell
+                print("Int(sbi) or Int(bemp) error")
+                return cell
         }
         cell.stationNameLabel.text = self.common.datas[indexPath.row].sna
         cell.totLabel.text = self.common.datas[indexPath.row].tot
@@ -125,7 +138,7 @@ extension ListViewController:UITableViewDelegate,UITableViewDataSource{
             cell.favoriteButton.setImage(UIImage(named: "unFavorite"), for: .normal)
             cell.favoriteButton.imageEdgeInsets = UIEdgeInsets(top: 50, left: 50, bottom: 50, right: 50)
         }
-
+        
         cell.favoriteButton.tag = indexPath.row
         
         cell.favoriteButton.addTarget(self, action: #selector(favoritePress), for: .touchUpInside)
@@ -137,4 +150,28 @@ extension ListViewController:UITableViewDelegate,UITableViewDataSource{
         self.tabBarController!.selectedIndex = 1
     }
 
+}
+
+//MARK: UIGestureRecognizerDelegate
+extension ListViewController: GADBannerViewDelegate {
+    func adViewDidReceiveAd(_ bannerView: GADBannerView) {
+        if self.bannerView.superview == nil {
+            
+            if self.topConstraint != nil {
+                self.topConstraint?.isActive = false
+            }
+            self.view.addSubview(bannerView)
+            
+            //autolayout
+            //廣告上緣－safeArea上緣
+            self.bannerView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 0).isActive = true
+            //廣告下緣－tableView上緣
+            self.bannerView.bottomAnchor.constraint(equalTo: self.tableView.topAnchor, constant: 0).isActive = true
+            //廣告左邊－controller'view 左邊
+            self.bannerView.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 0).isActive = true
+            //廣告右邊－controller'view 右邊
+            self.bannerView.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: 0).isActive = true
+            
+        }
+    }
 }

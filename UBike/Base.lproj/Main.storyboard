@@ -199,6 +199,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="C1u-uv-RFs" id="FgB-fC-nOs"/>
+                        <outlet property="topConstraint" destination="UHg-ge-qW0" id="mFE-CN-Nv8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -387,6 +388,7 @@
                     <tabBarItem key="tabBarItem" title="Favorites" image="favorite" id="mdo-ev-aLz"/>
                     <connections>
                         <outlet property="tableView" destination="gId-a0-jy1" id="z32-hM-ibm"/>
+                        <outlet property="topConstraint" destination="KbH-SO-uUo" id="xjn-3Q-2Ua"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7ve-6f-Wlp" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -485,7 +487,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bvj-Yv-TJY">
-                                <rect key="frame" x="2" y="46" width="50" height="50"/>
+                                <rect key="frame" x="2" y="92" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="ENb-Vn-8cX"/>
                                     <constraint firstAttribute="width" constant="50" id="tsD-CO-F4b"/>
@@ -499,7 +501,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="hmK-Ei-Vrv" firstAttribute="leading" secondItem="iyF-Dl-wdF" secondAttribute="leading" id="5zd-RH-hGh"/>
-                            <constraint firstItem="bvj-Yv-TJY" firstAttribute="top" secondItem="iyF-Dl-wdF" secondAttribute="top" constant="2" id="A7R-zZ-yyo"/>
+                            <constraint firstItem="bvj-Yv-TJY" firstAttribute="top" secondItem="iyF-Dl-wdF" secondAttribute="top" constant="48" id="A7R-zZ-yyo"/>
                             <constraint firstItem="hmK-Ei-Vrv" firstAttribute="trailing" secondItem="iyF-Dl-wdF" secondAttribute="trailing" id="AEK-bo-294"/>
                             <constraint firstItem="iyF-Dl-wdF" firstAttribute="bottom" secondItem="yUS-d5-Z1o" secondAttribute="bottom" id="JAi-p8-nfQ"/>
                             <constraint firstItem="bvj-Yv-TJY" firstAttribute="leading" secondItem="iyF-Dl-wdF" secondAttribute="leading" constant="2" id="Oly-DQ-SJ2"/>
@@ -519,6 +521,7 @@
                         <outlet property="mainMapView" destination="yUS-d5-Z1o" id="8YS-Ed-RbE"/>
                         <outlet property="sbiLabel" destination="HlN-Jy-tBd" id="TFM-99-QDj"/>
                         <outlet property="stationNameLabel" destination="YpO-eq-Qek" id="ndz-76-UMK"/>
+                        <outlet property="topConstraint" destination="PcY-7g-dYC" id="0Hq-h8-K3x"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Jr-nL-zZJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
