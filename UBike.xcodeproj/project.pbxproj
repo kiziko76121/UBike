@@ -20,6 +20,7 @@
 		EE3BA6A22308219500389571 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE3BA6A02308219500389571 /* Main.storyboard */; };
 		EE3BA6A42308219600389571 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE3BA6A32308219600389571 /* Assets.xcassets */; };
 		EE3BA6A72308219600389571 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE3BA6A52308219600389571 /* LaunchScreen.storyboard */; };
+		EE7B17FA23389336006471C8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EE7B17F923389335006471C8 /* GoogleService-Info.plist */; };
 		EE88BB1B230BE476002C6B7A /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE88BB1A230BE475002C6B7A /* CoreDataHelper.swift */; };
 		EE88BB20230C06CF002C6B7A /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE88BB1F230C06CF002C6B7A /* ListTableViewCell.swift */; };
 		EEEE8577230FA02A0081857A /* FavoriteDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EEEE8575230FA02A0081857A /* FavoriteDataModel.xcdatamodeld */; };
@@ -45,6 +46,7 @@
 		EE3BA6A32308219600389571 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EE3BA6A62308219600389571 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EE3BA6A82308219600389571 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EE7B17F923389335006471C8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EE88BB1A230BE475002C6B7A /* CoreDataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
 		EE88BB1F230C06CF002C6B7A /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
 		EEEE8576230FA02A0081857A /* FavoriteDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FavoriteDataModel.xcdatamodel; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 				EE3BA6A82308219600389571 /* Info.plist */,
 				EEFD604E2330C20E00306100 /* InfoPlist.strings */,
 				EEFD60542330C38400306100 /* Localizable.strings */,
+				EE7B17F923389335006471C8 /* GoogleService-Info.plist */,
 			);
 			path = UBike;
 			sourceTree = "<group>";
@@ -234,6 +237,7 @@
 				EEFD604C2330C20E00306100 /* InfoPlist.strings in Resources */,
 				EE3BA6A42308219600389571 /* Assets.xcassets in Resources */,
 				EE3BA6A22308219500389571 /* Main.storyboard in Resources */,
+				EE7B17FA23389336006471C8 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -379,7 +383,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -468,6 +472,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = U2WH294AL9;
 				INFOPLIST_FILE = UBike/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -487,6 +492,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = U2WH294AL9;
 				INFOPLIST_FILE = UBike/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

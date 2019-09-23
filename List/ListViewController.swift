@@ -9,6 +9,7 @@
 import UIKit
 import Gzip
 import GoogleMobileAds
+import Crashlytics
 
 class ListViewController: UIViewController {
     
@@ -37,6 +38,8 @@ class ListViewController: UIViewController {
         self.bannerView.rootViewController = self
         self.bannerView.load(GADRequest())
         self.bannerView.delegate = self
+        
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -52,6 +55,7 @@ class ListViewController: UIViewController {
     }
 
     @objc func favoritePress(_ sender: UIButton) {
+//        Crashlytics.sharedInstance().crash() //測試當機
         if sender.title(for: .normal) == "unFavorite"{
             guard let image = UIImage(named: "favorite") else{
                 return

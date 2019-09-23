@@ -11,4 +11,7 @@ target 'UBike' do
 
 pod 'GzipSwift'
 pod 'Google-Mobile-Ads-SDK'
+pod 'Firebase/Analytics'
+pod 'Fabric'
+pod 'Crashlytics'
 end
